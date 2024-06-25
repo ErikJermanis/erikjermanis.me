@@ -2,9 +2,9 @@ run: templ css build
 	@./bin/erikjermanisme
 
 deploy: templ css buildlinux
-	scp ./bin/erikjermanismelinux erik@erikjermanis.me:/home/erik/erikjermanisme
-	scp ./public/styles.css erik@erikjermanis.me:/home/erik/erikjermanisme/public
-	scp ./public/favicon.png erik@erikjermanis.me:/home/erik/erikjermanisme/public
+	scp ./bin/erikjermanismelinux erik@erikjermanis.me:/home/erik/sites/erikjermanis.me
+	scp ./public/styles.css erik@erikjermanis.me:/home/erik/sites/erikjermanis.me/public
+	scp ./public/favicon.png erik@erikjermanis.me:/home/erik/sites/erikjermanis.me/public
 
 buildlinux:
 	@GOOS=linux GOARCH=amd64 go build -o bin/erikjermanismelinux
