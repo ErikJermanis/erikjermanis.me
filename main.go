@@ -25,6 +25,8 @@ func main() {
 
 	r.Get("/", handlers.Index)
 
+	r.NotFound(handlers.NotFound)
+
 	port := os.Getenv("HTTP_PORT")
 
 	slog.Info(fmt.Sprintf("Server is running on port %s", port))

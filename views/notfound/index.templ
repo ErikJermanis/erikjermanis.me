@@ -1,0 +1,11 @@
+package notfound
+
+import "github.com/ErikJermanis/erikjermanis.me/views/layouts"
+
+templ Index() {
+	@layouts.Base("404 Not Found") {
+		<div class="flex flex-col items-center justify-center h-full">
+			<p class="text-slate-700 font-medium text-2xl mt-4">404 | Not Found</p>
+		</div>
+	}
+}
