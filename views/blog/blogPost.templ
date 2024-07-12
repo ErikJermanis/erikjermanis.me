@@ -1,0 +1,21 @@
+package blog
+
+import "github.com/ErikJermanis/erikjermanis.me/views/layouts"
+import "html/template"
+
+type BlogPostMetadata struct {
+	Title   string   `json:"title"`
+	Date    string   `json:"date"`
+	Tags    []string `json:"tags"`
+	Summary string   `json:"summary"`
+}
+
+templ BlogPost(title string, content *template.Template, metadata *BlogPostMetadata) {
+	@layouts.Blog(title) {
+		<h1>{ metadata.Title }</h1>
+		for _, tag := range metadata.Tags {
+			<span class="tag">{ tag }</span>
+		}
+		@templ.FromGoHTML(content, nil)
+	}
+}

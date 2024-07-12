@@ -25,6 +25,12 @@ func main() {
 
 	r.Get("/", handlers.Index)
 
+	blogRouter := chi.NewRouter()
+	blogRouter.Get("/", handlers.Blog)
+	blogRouter.Get("/{slug}", handlers.BlogPost)
+
+	r.Mount("/blog", blogRouter)
+
 	r.NotFound(handlers.NotFound)
 
 	port := os.Getenv("HTTP_PORT")

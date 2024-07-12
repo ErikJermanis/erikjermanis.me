@@ -3,8 +3,7 @@ run: templ css build
 
 deploy: templ css buildlinux
 	scp ./bin/erikjermanismelinux erik@erikjermanis.me:/home/erik/sites/erikjermanis.me
-	scp ./public/styles.css erik@erikjermanis.me:/home/erik/sites/erikjermanis.me/public
-	scp ./public/favicon.png erik@erikjermanis.me:/home/erik/sites/erikjermanis.me/public
+	scp -r ./public erik@erikjermanis.me:/home/erik/sites/erikjermanis.me
 
 buildlinux:
 	@GOOS=linux GOARCH=amd64 go build -o bin/erikjermanismelinux

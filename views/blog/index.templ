@@ -1,0 +1,19 @@
+package blog
+
+import "github.com/ErikJermanis/erikjermanis.me/views/layouts"
+
+templ Index() {
+	@layouts.Blog("Blog") {
+		<ul>
+			<li>
+				<a href="/blog/how-to-buy-bread-professionally">How to buy bread professionally</a>
+			</li>
+			<li>
+				<a href="/blog/hehe">Hehe</a>
+			</li>
+			<li>
+				<a href="/blog/taxes-are-bad">Taxes are bad</a>
+			</li>
+		</ul>
+	}
+}
