@@ -43,27 +43,27 @@ func BlogPost(documentTitle string, content *template.Template, metadata *BlogPo
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-11/12 max-w-screen-md mx-auto py-20\"><a href=\"/blog\" class=\"font-medium text-sky-700\">Back to blog</a><h1 class=\"text-slate-700 text-4xl mb-0.5 font-bold mt-4\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-11/12 max-w-screen-md mx-auto py-20\"><a href=\"/blog\" class=\"font-medium text-sky-700 dark:text-sky-300\">Back to blog</a><h1 class=\"text-slate-700 dark:text-slate-300 text-4xl mb-0.5 font-bold mt-4\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(metadata.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/blogPost.templ`, Line: 21, Col: 77}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/blogPost.templ`, Line: 21, Col: 97}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><span class=\"text-sm font-bold uppercase text-slate-500\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1><span class=\"text-sm font-bold uppercase text-slate-500 dark:text-slate-400\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(metadata.Date)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/blogPost.templ`, Line: 22, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/blogPost.templ`, Line: 22, Col: 95}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {

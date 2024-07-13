@@ -34,7 +34,7 @@ func Index(posts *[]BlogPostMetadata, tags []string) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-11/12 max-w-screen-md mx-auto py-20\"><a href=\"/\" class=\"font-medium text-sky-700\">Back to erikjermanis.me</a><h1 class=\"text-4xl text-slate-700 mb-7 mt-4\">Erik Jermaniš | Blog</h1><p>I write these blogs primarily as a learning method. Whenever I learn something interesting, or want to write something down so I don't forget, I make a blog out of it.</p><p class=\"text-sm uppercase font-light mt-10\">Filter by tag</p><ul class=\"flex flex-wrap mt-1.5\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-11/12 max-w-screen-md mx-auto py-20\"><a href=\"/\" class=\"font-medium text-sky-700 dark:text-sky-300\">Back to erikjermanis.me</a><h1 class=\"text-4xl text-slate-700 dark:text-slate-300 mb-7 mt-4\">Erik Jermaniš | Blog</h1><p>I write these blogs primarily as a learning method. Whenever I learn something interesting, or want to write something down so I don't forget, I make a blog out of it.</p><p class=\"text-sm uppercase font-light mt-10\">Filter by tag</p><ul class=\"flex flex-wrap mt-1.5\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -71,27 +71,27 @@ func Index(posts *[]BlogPostMetadata, tags []string) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><h2 class=\"text-slate-700 text-2xl mb-0.5 font-bold hover:text-amber-600 transition-colors\">")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><h2 class=\"text-slate-700 dark:text-slate-300 text-2xl mb-0.5 font-bold hover:text-amber-600 transition-colors\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/index.templ`, Line: 26, Col: 110}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/index.templ`, Line: 26, Col: 130}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h2></a> <span class=\"text-sm font-bold uppercase text-slate-500\">")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h2></a> <span class=\"text-sm font-bold uppercase text-slate-500 dark:text-slate-400\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(post.Date)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/index.templ`, Line: 28, Col: 73}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blog/index.templ`, Line: 28, Col: 93}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
