@@ -1,6 +1,6 @@
 package layouts
 
-templ Blog(title string) {
+templ Blog(title, keywords, description string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -8,6 +8,10 @@ templ Blog(title string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<link rel="stylesheet" type="text/css" href="/public/styles.css"/>
 			<link rel="icon" type="image/png" href="/public/favicon.png"/>
+			<meta name="description" content={ description }/>
+			if keywords != "" {
+				<meta name="keywords" content={ keywords }/>
+			}
 			<title>{ title } | Erik Jermaniš</title>
 		</head>
 		<body class="bg-slate-100">

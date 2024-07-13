@@ -6,6 +6,8 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"slices"
+	"strings"
 
 	"github.com/go-chi/chi/v5"
 
@@ -14,7 +16,41 @@ import (
 )
 
 func Blog(w http.ResponseWriter, r *http.Request) {
-	blog.Index().Render(r.Context(), w)
+	files, err := os.ReadDir("blogposts")
+	if err != nil {
+		slog.Error("error reading blog posts directory", "err", err)
+		notfound.Index().Render(r.Context(), w)
+		return
+	}
+
+	var posts []blog.BlogPostMetadata
+	var tags []string
+
+	for _, file := range files {
+		if strings.HasSuffix(file.Name(), ".json") {
+			metaFile, err := os.ReadFile("blogposts/" + file.Name())
+			if err != nil {
+				slog.Error("error reading blog post metadata", "err", err)
+				continue
+			}
+
+			var metadata blog.BlogPostMetadata
+			if err := json.Unmarshal(metaFile, &metadata); err != nil {
+				slog.Error("error parsing blog post metadata", "err", err)
+				continue
+			}
+
+			for _, tag := range metadata.Tags {
+				if !slices.Contains(tags, tag) {
+					tags = append(tags, tag)
+				}
+			}
+
+			posts = append(posts, metadata)
+		}
+	}
+
+	blog.Index(&posts, tags).Render(r.Context(), w)
 }
 
 func BlogPost(w http.ResponseWriter, r *http.Request) {
@@ -41,5 +77,10 @@ func BlogPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	blog.BlogPost(metadata.Title, content, &metadata).Render(r.Context(), w)
+	var documentTitle = metadata.Title
+	if len(documentTitle) > 40 {
+		documentTitle = documentTitle[:37] + "..."
+	}
+
+	blog.BlogPost(documentTitle, content, &metadata).Render(r.Context(), w)
 }
