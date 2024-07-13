@@ -72,7 +72,7 @@ func Blog(title, keywords, description string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" | Erik Jermaniš</title></head><body class=\"bg-slate-100 dark:bg-slate-900 dark\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" | Erik Jermaniš</title></head><body class=\"bg-slate-100 dark:bg-neutral-900\"><button id=\"theme-switcher\" class=\"fixed top-2 right-2 text-white bg-neutral-900 dark:bg-slate-100 dark:text-black px-3 py-0.5 rounded-full text-sm uppercase\">light theme</button>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -80,7 +80,7 @@ func Blog(title, keywords, description string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script type=\"text/javascript\">\n\t\t\t\tif (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n\t\t\t\t\tdocument.documentElement.classList.add('dark');\n\t\t\t\t\tdocument.getElementById('theme-switcher').textContent = 'light theme';\n\t\t\t\t} else {\n\t\t\t\t\tdocument.documentElement.classList.remove('dark');\n\t\t\t\t\tdocument.getElementById('theme-switcher').textContent = 'dark theme';\n\t\t\t\t}\n\t\t\t\tdocument.getElementById('theme-switcher').addEventListener('click', () => {\n\t\t\t\t\tif (document.documentElement.classList.contains('dark')) {\n\t\t\t\t\t\tdocument.documentElement.classList.remove('dark');\n\t\t\t\t\t\tlocalStorage.theme = 'light';\n\t\t\t\t\t\tdocument.getElementById('theme-switcher').textContent = 'dark theme';\n\t\t\t\t\t} else {\n\t\t\t\t\t\tdocument.documentElement.classList.add('dark');\n\t\t\t\t\t\tlocalStorage.theme = 'dark';\n\t\t\t\t\t\tdocument.getElementById('theme-switcher').textContent = 'light theme';\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t</script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

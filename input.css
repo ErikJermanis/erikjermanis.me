@@ -22,7 +22,7 @@ p {
 }
 
 .blogContent p {
-  @apply mb-3.5;
+  @apply mb-3.5 dark:text-neutral-200;
 }
 
 .blogContent a {
@@ -31,4 +31,20 @@ p {
 
 .blogContent code {
   @apply text-sm bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded text-amber-900 dark:text-amber-50;
+}
+
+.blogContent div:has(table) {
+  @apply overflow-x-auto w-11/12 my-9 mx-auto;
+}
+
+.blogContent table {
+  @apply w-full table-auto border-collapse border border-slate-200 dark:border-slate-800 dark:text-slate-200;
+}
+
+.blogContent th {
+  @apply bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 p-1.5;
+}
+
+.blogContent td {
+  @apply border border-slate-200 dark:border-slate-800 p-1;
 }

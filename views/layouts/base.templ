@@ -10,8 +10,29 @@ templ Base(title string) {
 			<link rel="icon" type="image/png" href="/public/favicon.png"/>
 			<title>{ title }</title>
 		</head>
-		<body class="bg-slate-100 dark:bg-slate-900 dark">
+		<body class="bg-slate-100 dark:bg-neutral-900">
+			<button id="theme-switcher" class="fixed top-2 right-2 text-white bg-neutral-900 dark:bg-slate-100 dark:text-black px-3 py-0.5 rounded-full text-sm uppercase">light theme</button>
 			{ children... }
+			<script type="text/javascript">
+				if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+					document.documentElement.classList.add('dark');
+					document.getElementById('theme-switcher').textContent = 'light theme';
+				} else {
+					document.documentElement.classList.remove('dark');
+					document.getElementById('theme-switcher').textContent = 'dark theme';
+				}
+				document.getElementById('theme-switcher').addEventListener('click', () => {
+					if (document.documentElement.classList.contains('dark')) {
+						document.documentElement.classList.remove('dark');
+						localStorage.theme = 'light';
+						document.getElementById('theme-switcher').textContent = 'dark theme';
+					} else {
+						document.documentElement.classList.add('dark');
+						localStorage.theme = 'dark';
+						document.getElementById('theme-switcher').textContent = 'light theme';
+					}
+				});
+			</script>
 		</body>
 	</html>
 }
