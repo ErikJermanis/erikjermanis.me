@@ -72,7 +72,7 @@ func Blog(title, keywords, description string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" | Erik Jermaniš</title></head><body class=\"bg-slate-100 dark:bg-neutral-900\"><button id=\"theme-switcher\" class=\"fixed top-2 right-2 text-white bg-neutral-900 dark:bg-slate-100 dark:text-black px-3 py-0.5 rounded-full text-sm uppercase\">light theme</button>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" | Erik Jermaniš</title></head><body class=\"bg-slate-100 relative dark:bg-neutral-900\"><button id=\"theme-switcher\" class=\"fixed top-2 right-2 text-white bg-neutral-900 dark:bg-slate-100 dark:text-black px-3 py-0.5 rounded-full text-sm uppercase\">light theme</button><div class=\"bg-coding-pattern absolute top-0 left-0 w-full h-96 -z-[1]\"></div><div class=\"bg-fade-pattern dark:bg-fade-pattern-dark absolute top-0 left-0 w-full h-96 -z-[1]\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

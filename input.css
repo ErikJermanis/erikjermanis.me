@@ -42,9 +42,9 @@ p {
 }
 
 .blogContent th {
-  @apply bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 p-1.5;
+  @apply bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 px-1.5 py-1;
 }
 
 .blogContent td {
-  @apply border border-slate-200 dark:border-slate-800 p-1;
+  @apply border border-slate-200 dark:border-slate-800 px-1 py-0.5;
 }
