@@ -31,7 +31,7 @@ func Index() templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col items-center justify-center h-full\"><p class=\"text-slate-700 font-medium text-2xl mt-4\">404 | Not Found</p></div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col items-center justify-center h-full\"><p class=\"text-slate-700 dark:text-slate-300 font-medium text-2xl mt-4\">404 | Not Found</p></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
