@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"slices"
+	"sort"
 	"strings"
 
 	"github.com/go-chi/chi/v5"
@@ -22,6 +23,8 @@ func Blog(w http.ResponseWriter, r *http.Request) {
 		notfound.Index().Render(r.Context(), w)
 		return
 	}
+
+	tag := strings.ReplaceAll(r.URL.Query().Get("tag"), "-", " ")
 
 	var posts []blog.BlogPostMetadata
 	var tags []string
@@ -40,6 +43,10 @@ func Blog(w http.ResponseWriter, r *http.Request) {
 				continue
 			}
 
+			if tag != "" && !slices.Contains(metadata.Tags, tag) {
+				continue
+			}
+
 			for _, tag := range metadata.Tags {
 				if !slices.Contains(tags, tag) {
 					tags = append(tags, tag)
@@ -50,7 +57,9 @@ func Blog(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	blog.Index(&posts, tags).Render(r.Context(), w)
+	sort.Sort(ByDate(posts))
+
+	blog.Index(&posts, tags, tag).Render(r.Context(), w)
 }
 
 func BlogPost(w http.ResponseWriter, r *http.Request) {
