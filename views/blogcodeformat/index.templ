@@ -1,0 +1,18 @@
+package blogcodeformat
+
+import "github.com/ErikJermanis/erikjermanis.me/views/layouts"
+
+templ Index(renderedHtml string, lexers []string) {
+	@layouts.BlogCodeFormat() {
+		<form action="/blogcodeformat" method="post">
+			<select name="lexer">
+				for _, lexer := range lexers {
+					<option value={ lexer }>{ lexer }</option>
+				}
+			</select>
+			<textarea name="code"></textarea>
+			<button type="submit">format</button>
+		</form>
+		<code>{ renderedHtml }</code>
+	}
+}

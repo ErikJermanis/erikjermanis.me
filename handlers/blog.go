@@ -17,79 +17,79 @@ import (
 )
 
 func Blog(w http.ResponseWriter, r *http.Request) {
-	files, err := os.ReadDir("blogposts")
-	if err != nil {
-		slog.Error("error reading blog posts directory", "err", err)
-		notfound.Index().Render(r.Context(), w)
-		return
-	}
+  files, err := os.ReadDir("blogposts")
+  if err != nil {
+    slog.Error("error reading blog posts directory", "err", err)
+    notfound.Index().Render(r.Context(), w)
+    return
+  }
 
-	tag := strings.ReplaceAll(r.URL.Query().Get("tag"), "-", " ")
+  tag := strings.ReplaceAll(r.URL.Query().Get("tag"), "-", " ")
 
-	var posts []blog.BlogPostMetadata
-	var tags []string
+  var posts []blog.BlogPostMetadata
+  var tags []string
 
-	for _, file := range files {
-		if strings.HasSuffix(file.Name(), ".json") {
-			metaFile, err := os.ReadFile("blogposts/" + file.Name())
-			if err != nil {
-				slog.Error("error reading blog post metadata", "err", err)
-				continue
-			}
+  for _, file := range files {
+    if strings.HasSuffix(file.Name(), ".json") {
+      metaFile, err := os.ReadFile("blogposts/" + file.Name())
+      if err != nil {
+        slog.Error("error reading blog post metadata", "err", err)
+        continue
+      }
 
-			var metadata blog.BlogPostMetadata
-			if err := json.Unmarshal(metaFile, &metadata); err != nil {
-				slog.Error("error parsing blog post metadata", "err", err)
-				continue
-			}
+      var metadata blog.BlogPostMetadata
+      if err := json.Unmarshal(metaFile, &metadata); err != nil {
+        slog.Error("error parsing blog post metadata", "err", err)
+        continue
+      }
 
-			if tag != "" && !slices.Contains(metadata.Tags, tag) {
-				continue
-			}
+      if tag != "" && !slices.Contains(metadata.Tags, tag) {
+        continue
+      }
 
-			for _, tag := range metadata.Tags {
-				if !slices.Contains(tags, tag) {
-					tags = append(tags, tag)
-				}
-			}
+      for _, tag := range metadata.Tags {
+        if !slices.Contains(tags, tag) {
+          tags = append(tags, tag)
+        }
+      }
 
-			posts = append(posts, metadata)
-		}
-	}
+      posts = append(posts, metadata)
+    }
+  }
 
-	sort.Sort(ByDate(posts))
+  sort.Sort(ByDate(posts))
 
-	blog.Index(&posts, tags, tag).Render(r.Context(), w)
+  blog.Index(&posts, tags, tag).Render(r.Context(), w)
 }
 
 func BlogPost(w http.ResponseWriter, r *http.Request) {
-	slug := chi.URLParam(r, "slug")
+  slug := chi.URLParam(r, "slug")
 
-	content, err := template.ParseFiles("blogposts/" + slug + ".html")
-	if err != nil {
-		slog.Error("error reading blog post content", "err", err)
-		notfound.Index().Render(r.Context(), w)
-		return
-	}
+  content, err := template.ParseFiles("blogposts/" + slug + ".html")
+  if err != nil {
+    slog.Error("error reading blog post content", "err", err)
+    notfound.Index().Render(r.Context(), w)
+    return
+  }
 
-	metadataFile, err := os.ReadFile("blogposts/" + slug + ".json")
-	if err != nil {
-		slog.Error("error reading blog post metadata", "err", err)
-		notfound.Index().Render(r.Context(), w)
-		return
-	}
+  metadataFile, err := os.ReadFile("blogposts/" + slug + ".json")
+  if err != nil {
+    slog.Error("error reading blog post metadata", "err", err)
+    notfound.Index().Render(r.Context(), w)
+    return
+  }
 
-	var metadata blog.BlogPostMetadata
-	if err := json.Unmarshal(metadataFile, &metadata); err != nil {
-		slog.Error("error parsing blog post metadata", "err", err)
-		notfound.Index().Render(r.Context(), w)
-		return
-	}
+  var metadata blog.BlogPostMetadata
+  if err := json.Unmarshal(metadataFile, &metadata); err != nil {
+    slog.Error("error parsing blog post metadata", "err", err)
+    notfound.Index().Render(r.Context(), w)
+    return
+  }
 
-	var documentTitle = metadata.Title
-	if len(documentTitle) > 40 {
-		documentTitle = documentTitle[:37] + "..."
-	}
+  var documentTitle = metadata.Title
+  if len(documentTitle) > 40 {
+    documentTitle = documentTitle[:37] + "..."
+  }
 
-	blog.BlogPost(documentTitle, content, &metadata).Render(r.Context(), w)
+  blog.BlogPost(documentTitle, content, &metadata).Render(r.Context(), w)
 }

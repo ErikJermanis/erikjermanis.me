@@ -13,7 +13,7 @@ import (
 
 func main() {
 	env := os.Getenv("ENV")
-	if env != "local" {
+	if env != "prod" {
 		if err := godotenv.Load(); err != nil {
 			slog.Error("error loading .env", "err", err)
 		}
@@ -24,6 +24,12 @@ func main() {
 	r.Handle("/public/*", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
 	r.Get("/", handlers.Index)
+
+	r.Group(func(r chi.Router) {
+		r.Use(handlers.BasicAuth)
+		r.Get("/blogcodeformat", handlers.BlogCodeFormat)
+		r.Post("/blogcodeformat", handlers.HandleFormatCode)
+	})
 
 	blogRouter := chi.NewRouter()
 	blogRouter.Get("/", handlers.Blog)

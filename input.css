@@ -21,6 +21,10 @@ p {
   @apply text-xl font-semibold text-slate-700 dark:text-slate-300 mt-8 mb-3;
 }
 
+.blogContent h4 {
+  @apply text-lg font-bold text-slate-700 dark:text-slate-300 mt-6 mb-2;
+}
+
 .blogContent p {
   @apply mb-3.5 dark:text-neutral-200;
 }
@@ -31,6 +35,10 @@ p {
 
 .blogContent code {
   @apply text-sm bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded text-amber-900 dark:text-amber-50;
+}
+
+.blogContent div.codeBlockHeader {
+  @apply bg-slate-700 text-xs text-slate-200 w-full rounded-t-md px-2 py-1 mt-9;
 }
 
 .blogContent div:has(table) {
@@ -47,4 +55,266 @@ p {
 
 .blogContent td {
   @apply border border-slate-200 dark:border-slate-800 px-1 py-0.5;
+}
+
+.blogContent .bg {
+  color: #e6edf3;
+  background-color: #0d1117;
+  @apply py-2 px-3 rounded-b-md border border-slate-700 text-sm mb-9 w-full overflow-auto;
+}
+.blogContent .chroma {
+  color: #e6edf3;
+  background-color: #0d1117;
+}
+.blogContent .chroma code {
+  all: unset;
+}
+.blogContent .chroma .err {
+  color: #f85149;
+}
+.blogContent .chroma .lnlinks {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+.blogContent .chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.blogContent .chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.blogContent .chroma .hl {
+  background-color: #6e7681;
+}
+.blogContent .chroma .lnt {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #737679;
+}
+.blogContent .chroma .ln {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #6e7681;
+}
+.blogContent .chroma .line {
+  display: flex;
+}
+.blogContent .chroma .k {
+  color: #ff7b72;
+}
+.blogContent .chroma .kc {
+  color: #79c0ff;
+}
+.blogContent .chroma .kd {
+  color: #ff7b72;
+}
+.blogContent .chroma .kn {
+  color: #ff7b72;
+}
+.blogContent .chroma .kp {
+  color: #79c0ff;
+}
+.blogContent .chroma .kr {
+  color: #ff7b72;
+}
+.blogContent .chroma .kt {
+  color: #ff7b72;
+}
+.blogContent .chroma .nc {
+  color: #f0883e;
+  font-weight: bold;
+}
+.blogContent .chroma .no {
+  color: #79c0ff;
+  font-weight: bold;
+}
+.blogContent .chroma .nd {
+  color: #d2a8ff;
+  font-weight: bold;
+}
+.blogContent .chroma .ni {
+  color: #ffa657;
+}
+.blogContent .chroma .ne {
+  color: #f0883e;
+  font-weight: bold;
+}
+.blogContent .chroma .nf {
+  color: #d2a8ff;
+  font-weight: bold;
+}
+.blogContent .chroma .nl {
+  color: #79c0ff;
+  font-weight: bold;
+}
+.blogContent .chroma .nn {
+  color: #ff7b72;
+}
+.blogContent .chroma .py {
+  color: #79c0ff;
+}
+.blogContent .blogContent .chroma .nt {
+  color: #7ee787;
+}
+.blogContent .chroma .nv {
+  color: #79c0ff;
+}
+.blogContent .chroma .l {
+  color: #a5d6ff;
+}
+.blogContent .chroma .ld {
+  color: #79c0ff;
+}
+.blogContent .chroma .s {
+  color: #a5d6ff;
+}
+.blogContent .chroma .sa {
+  color: #79c0ff;
+}
+.blogContent .chroma .sb {
+  color: #a5d6ff;
+}
+.blogContent .chroma .sc {
+  color: #a5d6ff;
+}
+.blogContent .chroma .dl {
+  color: #79c0ff;
+}
+.blogContent .chroma .sd {
+  color: #a5d6ff;
+}
+.blogContent .chroma .s2 {
+  color: #a5d6ff;
+}
+.blogContent .chroma .se {
+  color: #79c0ff;
+}
+.blogContent .chroma .sh {
+  color: #79c0ff;
+}
+.blogContent .chroma .si {
+  color: #a5d6ff;
+}
+.blogContent .chroma .sx {
+  color: #a5d6ff;
+}
+.blogContent .chroma .sr {
+  color: #79c0ff;
+}
+.blogContent .chroma .s1 {
+  color: #a5d6ff;
+}
+.blogContent .chroma .ss {
+  color: #a5d6ff;
+}
+.blogContent .chroma .m {
+  color: #a5d6ff;
+}
+.blogContent .chroma .mb {
+  color: #a5d6ff;
+}
+.blogContent .chroma .mf {
+  color: #a5d6ff;
+}
+.blogContent .chroma .mh {
+  color: #a5d6ff;
+}
+.blogContent .chroma .mi {
+  color: #a5d6ff;
+}
+.blogContent .chroma .il {
+  color: #a5d6ff;
+}
+.blogContent .chroma .mo {
+  color: #a5d6ff;
+}
+.blogContent .chroma .o {
+  color: #ff7b72;
+  font-weight: bold;
+}
+.blogContent .chroma .ow {
+  color: #ff7b72;
+  font-weight: bold;
+}
+.blogContent .chroma .c {
+  color: #8b949e;
+  font-style: italic;
+}
+.blogContent .chroma .ch {
+  color: #8b949e;
+  font-style: italic;
+}
+.blogContent .chroma .cm {
+  color: #8b949e;
+  font-style: italic;
+}
+.blogContent .chroma .c1 {
+  color: #8b949e;
+  font-style: italic;
+}
+.blogContent .chroma .cs {
+  color: #8b949e;
+  font-weight: bold;
+  font-style: italic;
+}
+.blogContent .chroma .cp {
+  color: #8b949e;
+  font-weight: bold;
+  font-style: italic;
+}
+.blogContent .chroma .cpf {
+  color: #8b949e;
+  font-weight: bold;
+  font-style: italic;
+}
+.blogContent .chroma .gd {
+  color: #ffa198;
+  background-color: #490202;
+}
+.blogContent .chroma .ge {
+  font-style: italic;
+}
+.blogContent .chroma .gr {
+  color: #ffa198;
+}
+.blogContent .chroma .gh {
+  color: #79c0ff;
+  font-weight: bold;
+}
+.blogContent .chroma .gi {
+  color: #56d364;
+  background-color: #0f5323;
+}
+.blogContent .chroma .go {
+  color: #8b949e;
+}
+.blogContent .chroma .gp {
+  color: #8b949e;
+}
+.blogContent .chroma .gs {
+  font-weight: bold;
+}
+.blogContent .chroma .gu {
+  color: #79c0ff;
+}
+.blogContent .chroma .gt {
+  color: #ff7b72;
+}
+.blogContent .chroma .gl {
+  text-decoration: underline;
+}
+.blogContent .chroma .w {
+  color: #6e7681;
 }
