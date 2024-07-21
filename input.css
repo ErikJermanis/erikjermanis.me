@@ -57,17 +57,33 @@ p {
   @apply border border-slate-200 dark:border-slate-800 px-1 py-0.5;
 }
 
+.blogContent ol {
+  @apply dark:text-neutral-200 list-decimal list-inside;
+}
+
+.blogContent ul {
+  @apply dark:text-neutral-200 list-disc list-inside;
+}
+
+.blogContent li {
+  @apply pl-3.5 pb-2;
+}
+
+.blogContent blockquote {
+  @apply border-l-4 border-sky-700 dark:border-sky-300 pl-3.5 pr-1.5 py-1.5 my-6 rounded-r-lg bg-slate-200 dark:bg-neutral-800 dark:text-neutral-200;
+}
+
 .blogContent .bg {
   color: #e6edf3;
   background-color: #0d1117;
-  @apply py-2 px-3 rounded-b-md border border-slate-700 text-sm mb-9 w-full overflow-auto;
+  @apply py-2 px-3 rounded-b-md border border-slate-700 text-sm mb-9 w-full overflow-x-auto;
+}
+.blogContent .chroma code {
+  all: unset;
 }
 .blogContent .chroma {
   color: #e6edf3;
   background-color: #0d1117;
-}
-.blogContent .chroma code {
-  all: unset;
 }
 .blogContent .chroma .err {
   color: #f85149;
@@ -110,6 +126,32 @@ p {
 }
 .blogContent .chroma .line {
   display: flex;
+  height: 20px;
+}
+.blogContent .chroma .line.highlight {
+  @apply bg-slate-800 relative;
+}
+.blogContent .chroma .line.highlight::before {
+  content: "+";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: -12px;
+  @apply bg-green-900 text-green-500;
+}
+.blogContent .chroma .line.highlight::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: -12px;
+  @apply bg-gradient-to-r from-slate-800 to-transparent;
 }
 .blogContent .chroma .k {
   color: #ff7b72;

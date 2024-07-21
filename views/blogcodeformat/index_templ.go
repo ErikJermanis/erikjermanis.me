@@ -31,7 +31,7 @@ func Index(renderedHtml string, lexers []string) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form action=\"/blogcodeformat\" method=\"post\"><select name=\"lexer\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<form action=\"/blogcodeformat\" method=\"post\" class=\"flex flex-col\"><select name=\"lexer\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -67,20 +67,20 @@ func Index(renderedHtml string, lexers []string) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</select> <textarea name=\"code\"></textarea> <button type=\"submit\">format</button></form><code>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</select> <textarea name=\"code\" class=\"resize w-1/2 h-96\"></textarea> <button type=\"submit\">format</button></form><pre><code>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(renderedHtml)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blogcodeformat/index.templ`, Line: 16, Col: 22}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/blogcodeformat/index.templ`, Line: 16, Col: 27}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</code>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</code></pre>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

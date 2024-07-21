@@ -4,15 +4,15 @@ import "github.com/ErikJermanis/erikjermanis.me/views/layouts"
 
 templ Index(renderedHtml string, lexers []string) {
 	@layouts.BlogCodeFormat() {
-		<form action="/blogcodeformat" method="post">
+		<form action="/blogcodeformat" method="post" class="flex flex-col">
 			<select name="lexer">
 				for _, lexer := range lexers {
 					<option value={ lexer }>{ lexer }</option>
 				}
 			</select>
-			<textarea name="code"></textarea>
+			<textarea name="code" class="resize w-1/2 h-96"></textarea>
 			<button type="submit">format</button>
 		</form>
-		<code>{ renderedHtml }</code>
+		<pre><code>{ renderedHtml }</code></pre>
 	}
 }
