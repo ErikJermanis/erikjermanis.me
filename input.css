@@ -41,20 +41,24 @@ p {
   @apply bg-slate-700 text-xs text-slate-200 w-full rounded-t-md px-2 py-1 mt-9;
 }
 
+.blogContent .tableName {
+  @apply text-slate-700 dark:text-slate-300 mt-9 mb-1.5 pl-2;
+}
+
 .blogContent div:has(table) {
-  @apply overflow-x-auto w-11/12 my-9 mx-auto;
+  @apply overflow-x-auto w-11/12 mb-9 mx-auto;
 }
 
 .blogContent table {
-  @apply w-full table-auto border-collapse border border-slate-200 dark:border-slate-800 dark:text-slate-200;
+  @apply w-full table-auto border-collapse border border-slate-200 dark:border-slate-800 dark:text-slate-200 text-sm;
 }
 
 .blogContent th {
-  @apply bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 px-1.5 py-1;
+  @apply bg-slate-200 dark:bg-neutral-700 border border-slate-200 dark:border-neutral-700 px-1.5 py-1;
 }
 
 .blogContent td {
-  @apply border border-slate-200 dark:border-slate-800 px-1 py-0.5;
+  @apply border border-slate-300 dark:border-neutral-700 px-1 py-0.5;
 }
 
 .blogContent ol {

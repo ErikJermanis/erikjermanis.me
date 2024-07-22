@@ -1,6 +1,6 @@
 package layouts
 
-templ Base(title string) {
+templ Base(title, description string, displayJsonLd bool) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -8,7 +8,24 @@ templ Base(title string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<link rel="stylesheet" type="text/css" href="/public/styles.css"/>
 			<link rel="icon" type="image/png" href="/public/favicon.png"/>
+			if description != "" {
+				<meta name="description" content={ description }/>
+			}
 			<title>{ title }</title>
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "Person",
+					"name": "Erik Jermaniš",
+					"url": "https://erikjermanis.me/",
+					"jobTitle": "Software engineer",
+					"sameAs": [
+						"https://github.com/ErikJermanis",
+						"https://x.com/ej_dev1",
+						"https://www.linkedin.com/in/erik-jermanis/"
+					]
+				}
+			</script>
 		</head>
 		<body class="bg-slate-100 bg-coding-pattern dark:bg-neutral-900">
 			<button id="theme-switcher" class="fixed top-2 right-2 text-white bg-neutral-900 dark:bg-slate-100 dark:text-black px-3 py-0.5 rounded-full text-sm uppercase">light theme</button>
