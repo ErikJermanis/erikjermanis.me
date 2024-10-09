@@ -35,7 +35,7 @@ func Index(posts *[]BlogPostMetadata, tags []string, tag string) templ.Component
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-11/12 max-w-screen-md mx-auto py-20\"><a href=\"/\" class=\"font-medium text-sky-700 dark:text-sky-300\">Back to erikjermanis.me</a><h1 class=\"text-4xl text-slate-700 dark:text-slate-300 mb-7 mt-4\">Erik Jermaniš | Blog</h1><p>I write these blogs primarily as a learning method. Whenever I learn something interesting, or want to write something down so I don't forget, I make a blog out of it.</p>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-11/12 max-w-screen-md mx-auto py-20\"><a href=\"/\" class=\"font-medium text-sky-700 dark:text-sky-300\">Back to erikjermanis.me</a><h1 class=\"text-4xl text-slate-700 dark:text-slate-300 mb-7 mt-4\">Erik Jermaniš | Blog</h1><p>Technical guides, opinions, essays. I put everything here. If you are interested in tehcnical guides I wrote, click on a tag to filter for what you are interested about. If you are interested in essays I am writing to improve my writing and literacy, click on \"braindump\".</p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
