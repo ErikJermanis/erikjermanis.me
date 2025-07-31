@@ -16,3 +16,6 @@ css:
 
 templ:
 	@templ generate
+
+publish:
+	scp -r ./blogposts/* erik@erikjermanis.me:/home/erik/sites/erikjermanis.me/blogposts
