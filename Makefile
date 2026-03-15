@@ -23,6 +23,10 @@ css:
 templ:
 	@templ generate
 
-# Command to publish blog posts to the server without redeploying the entire application
+# Command to publish a single blog post to the server
 publish:
+	scp ./blogposts/$(post).html ./blogposts/$(post).json erik@erikjermanis.me:/home/erik/sites/erikjermanis.me/blogposts
+
+# Command to publish all blog posts to the server
+publishall:
 	scp -r ./blogposts/* erik@erikjermanis.me:/home/erik/sites/erikjermanis.me/blogposts
